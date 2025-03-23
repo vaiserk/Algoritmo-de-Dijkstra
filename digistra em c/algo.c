@@ -11,6 +11,7 @@ int main() {
     } else {
         printf("O numero %d é impar.\n", numero);
         printf("O numero %d é impar.\n", numero);
+        printf("ou");
     }
     
     return 0;
