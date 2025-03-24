@@ -66,20 +66,23 @@ def main():
     # Exemplo 2: caminho de 5 (índice 4) para 2 (índice 1)
     # Só para ver um caso que existe caminho
 
-    comeco = int (input("digite o começo")) - 1 
-    fim = int (input("digite o fim")) - 1 
+    comeco = input("digite o começo") 
+    comeco = int(comeco) -1
+    fim = input("digite o fim") 
+    fim = int (fim) -1
 
     if ((comeco < 0 or comeco > 5) or (fim<0 or fim>5)):
         print("Imposivel!")
         exit()
 
-    dist_52, path_52 = dijkstra(graph, comeco, fim)
-    if dist_52 == INF:
-        print(f"Não existe caminho de {comeco} para {fim}.")
+    distancia, caminho = dijkstra(graph, comeco, fim)
+    if distancia == INF:
+        print(f"Não existe caminho de {comeco+1} para {fim+1}.")
     else:
-        caminho_1_based = [x+1 for x in path_52]
-        print(f"Distância de {comeco} para {fim} = {dist_52}")
-        print(f"Caminho: {caminho_1_based}")
+        #path são os indices portanto se soma +1 para cada iten no vetor
+        melhor_caminho = [x+1 for x in caminho]
+        print(f"Distância de {comeco+1} para {fim+1} = {distancia}")
+        print(f"Caminho: {melhor_caminho}")
 
 
 if __name__ == "__main__":
