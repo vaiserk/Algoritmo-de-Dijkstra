@@ -42,12 +42,24 @@ def dijkstra(graph, start, end):
 
     return dist[end], caminho
 
+def mat():
+    matriz = input("digite a b c ou d para escoler a matriz: ")
+    return matriz
 
 def main():
     INF = math.inf
+    
 
     #importando matriz
-    graph_test = ler_grafo_de_arquivo(r"C:\Users\ootav\OneDrive\Desktop\algo digistra\empython\adjacencia.txt")
+    try:
+        matriz = mat()
+        while matriz not in ("a§b§c§d"):
+            matriz = mat()
+    except:
+        print("erro!")
+        
+
+    graph_test = ler_grafo_de_arquivo(rf"C:\Users\ootav\OneDrive\Desktop\algo digistra\empython\adjacencia_{matriz}.txt")
 
     comeco = int(input("digite o começo: ") ) - 1;  
     fim = int(input("digite o fim: ") ) -1; 
