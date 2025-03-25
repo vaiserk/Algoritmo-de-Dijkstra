@@ -12,7 +12,6 @@ def dijkstra(graph, start, end):
     predecessor = [-1] * n
 
     for _ in range(n):
-        # Acha o vértice u não-visitado com menor dist[u]
         u = -1
         menor = INF
         for i in range(n):
@@ -23,7 +22,6 @@ def dijkstra(graph, start, end):
             break
         visited[u] = True
 
-        # Relaxa as arestas que saem de u
         for v in range(n):
             if graph[u][v] != INF and not visited[v]:
                 nova_dist = dist[u] + graph[u][v]
@@ -31,7 +29,6 @@ def dijkstra(graph, start, end):
                     dist[v] = nova_dist
                     predecessor[v] = u
 
-    # Reconstruindo o caminho
     caminho = []
     if dist[end] != INF:
         atual = end
@@ -50,10 +47,9 @@ def main():
     INF = math.inf
     
 
-    #importando matriz
     try:
         matriz = mat()
-        while matriz not in ("a§b§c§d"):
+        while matriz not in ("a", "b", "c", "d"):
             matriz = mat()
     except:
         print("erro!")
@@ -73,7 +69,6 @@ def main():
     if distancia == INF:
         print(f"Não existe caminho de {comeco+1} para {fim+1}.")
     else:
-        #path são os indices portanto se soma +1 para cada iten no vetor5
         melhor_caminho = [x+1 for x in caminho]
         print(f"Distância de {comeco+1} para {fim+1} = {distancia}")
         print(f"Caminho: {melhor_caminho}")
