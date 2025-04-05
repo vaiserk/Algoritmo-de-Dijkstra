@@ -6,9 +6,12 @@ def dijkstra(graph, start, end):
     
     INF = math.inf
     n = len(graph)
+    print(n)
+
     dist = [INF] * n
     dist[start] = 0
     visited = [False] * n
+    
     predecessor = [-1] * n
 
     for _ in range(n):
@@ -40,7 +43,7 @@ def dijkstra(graph, start, end):
     return dist[end], caminho
 
 def mat():
-    matriz = input("digite a b c ou d para escoler a matriz: ")
+    matriz = input("digite a b c d ou e para escoler a matriz: ")
     return matriz
 
 def main():
@@ -49,7 +52,7 @@ def main():
 
     try:
         matriz = mat()
-        while matriz not in ("a", "b", "c", "d"):
+        while matriz not in ("a", "b", "c", "d","e"):
             matriz = mat()
     except:
         print("erro!")
